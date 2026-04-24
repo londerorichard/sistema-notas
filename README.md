@@ -1,9 +1,26 @@
 # Sistema de Notas
 
-Projeto feito em Python para gerenciamento de notas escolares.
+Projeto desenvolvido em Python para gerenciamento de notas escolares.
 
-## Tecnologias
+---
+
+## Funcionalidades
+
+- Adicionar notas de alunos
+- Calcular média
+- Exibir status (aprovado/reprovad0/média)
+- Listar informações organizadas
+
+---
+
+## 🛠️ Tecnologias utilizadas
+
 - Python
 
-## Como rodar
-python sistemanotas.py
+---
+
+## 📂 Como executar o projeto
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/londerorichard/sistema-notas.git
