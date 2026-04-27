@@ -3,15 +3,20 @@ materias = [
     "1 - Lógica de programação",
     "2 - Ciência da computação",
     "3 - UX/UI",
-    "4 - Cyber Segurança"
-]
+    "3 - Cyber Segurança"
+  ]
 
 # OPÇÃO 1 - CADASTRAR ALUNO
 
 def calcular_media_aluno(alunos, materias):
     print("\n1 - Calcular média")
 
-    nome = input("Nome do aluno: ")
+    # nome
+    while True:
+      nome = input("Nome do aluno: ").strip()
+      if nome:
+          break
+      print("Nome inválido!")
 
     # mostrar matérias
     for m in materias:
@@ -126,7 +131,7 @@ while opcao != 0:
 
         case 2:
             for materia in materias:
-                print(materia)
+              print(materia)
 
         case 3:
             if alunos:
@@ -134,7 +139,7 @@ while opcao != 0:
                     print(f"Aluno: {aluno['nome']} - Média: {aluno['media']:.2f} - Situação: {aluno['situacao']}")
 
             else:
-                print("Nenhum aluno cadastrado")
+                print("Nenhum aluno foi cadastrado")
 
         case 4:
             mostrar_informacoes(alunos)
@@ -147,10 +152,3 @@ while opcao != 0:
             print("Opção inválida")
 
 print("Programa encerrado.")
-
-
-
-
-
-
-
