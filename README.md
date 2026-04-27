@@ -8,7 +8,7 @@ Projeto desenvolvido em Python para gerenciamento de notas escolares.
 
 - Adicionar notas de alunos
 - Calcular média
-- Exibir status (aprovado/reprovad0/média)
+- Exibir status (aprovado/reprovado/média)
 - Listar informações organizadas
 
 ---
