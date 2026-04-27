@@ -88,6 +88,7 @@ def mostrar_informacoes(alunos):
     soma = 0
     maior = alunos[0]
     menor = alunos[0]
+    aprovados = 0
 
     for aluno in alunos:
         soma += aluno["media"]
@@ -98,11 +99,15 @@ def mostrar_informacoes(alunos):
         if aluno["media"] < menor["media"]:
             menor = aluno
 
+        if aluno["situacao"] == "Aprovado(a)":
+            aprovados += 1
+
     media_geral = soma / len(alunos)
 
     print(f"\nMédia geral: {media_geral:.2f}")
     print(f"Maior média: {maior['nome']} - {maior['media']:.2f}")
     print(f"Menor média: {menor['nome']} - {menor['media']:.2f}")
+    print(f"Número de aprovados: {aprovados}")
 
 # MENU PRINCIPAL
 
