@@ -13,7 +13,7 @@ def calcular_media_aluno(alunos, materias):
 
     # nome
     while True:
-      nome = input("Nome do aluno: ").strip()
+      nome = input("Nome do aluno: ").lower().strip()
       if nome:
           break
       print("Nome inválido!")
@@ -109,6 +109,19 @@ def mostrar_informacoes(alunos):
     print(f"Menor média: {menor['nome']} - {menor['media']:.2f}")
     print(f"Número de aprovados: {aprovados}")
 
+# buscar alunos
+
+def buscar_alunos(alunos, nome_busca):
+    resultados = []
+
+    nome_busca = nome_busca.strip().lower()
+
+    for aluno in alunos:
+        if nome_busca in aluno["nome"].strip().lower():
+            resultados.append(aluno)
+
+    return resultados
+
 # MENU PRINCIPAL
 
 opcao = -1
@@ -121,6 +134,7 @@ while opcao != 0:
     print("2 - Lista de matérias")
     print("3 - Alunos cadastrados")
     print("4 - Média geral")
+    print("5 - Buscar aluno cadastrado")
     print("0 - Sair")
 
     try:
@@ -148,6 +162,17 @@ while opcao != 0:
 
         case 4:
             mostrar_informacoes(alunos)
+
+        case 5:
+            nome_busca = input("Qual aluno deseja buscar? ")
+            
+            resultado = buscar_alunos(alunos, nome_busca)
+            
+            if resultado:
+                for aluno in resultado:
+                    print(f"Aluno: {aluno['nome']} - Média: {aluno['media']:.2f} - Situação: {aluno['situacao']}")
+            else:
+                print("Nenhum aluno foi encontrado.")
  
         case 0:
             print("Saindo...")

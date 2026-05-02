@@ -10,10 +10,11 @@ Projeto desenvolvido em Python para gerenciamento de notas escolares.
 - Calcular média
 - Exibir status (aprovado/reprovado/média)
 - Listar informações organizadas
+- Função de busca de alunos
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 - Python
 
