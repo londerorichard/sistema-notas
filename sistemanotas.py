@@ -3,7 +3,7 @@ materias = [
     "1 - Lógica de programação",
     "2 - Ciência da computação",
     "3 - UX/UI",
-    "3 - Cyber Segurança"
+    "4 - Cyber Segurança"
   ]
 
 # OPÇÃO 1 - CADASTRAR ALUNO
@@ -13,10 +13,12 @@ def calcular_media_aluno(alunos, materias):
 
     # nome
     while True:
-      nome = input("Nome do aluno: ").lower().strip()
-      if nome:
-          break
-      print("Nome inválido!")
+        nome = input("Nome do aluno: ").lower().strip()
+
+        if nome.replace(" ", "").isalpha():
+            break
+
+        print("Nome inválido!")
 
     # mostrar matérias
     for m in materias:
@@ -54,19 +56,26 @@ def calcular_media_aluno(alunos, materias):
         while True:
             try:
                 nota = float(input(f"Digite a nota {i + 1}: "))
-                soma += nota
-                break
-            except ValueError:
-                print("Nota inválida! Tente novamente.")
 
+                if nota >= 0 and nota <= 10:
+                    soma += nota
+                    break
+
+                else:
+                    print("Nota inválida! Digite uma nota entre 0 e 10.")
+
+            except ValueError:
+                print("Digite um número válido!")
+                continue
+                
     media = soma / qtd_notas
 
     if media >= 7:
         situacao = "Aprovado(a)"
-    elif media < 5:
-        situacao = "Reprovado(a)"
-    else:
+    elif media >= 5 and media < 7:
         situacao = "Recuperação"
+    else:
+        situacao = "Reprovado(a)"
 
     alunos.append({
         "nome": nome,
@@ -164,7 +173,9 @@ while opcao != 0:
             mostrar_informacoes(alunos)
 
         case 5:
-            nome_busca = input("Qual aluno deseja buscar? ")
+            nome_busca = input("Qual aluno deseja buscar? ").strip().lower()
+            if nome_busca == "":
+                print("Nome inválido!")
             
             resultado = buscar_alunos(alunos, nome_busca)
             
